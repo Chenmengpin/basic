@@ -33,12 +33,12 @@
 ```
     根据上面的信息可以看出该芯片共12625个探针，这22个样本根据疾病状态分成两组，14vs8
     这个数据对象就可以打包做很多包的分析输入数据。
-    对这个包的分析，重点就是exprs函数提取表达矩阵，pData函数看看该对象的样本分组信息。
+    对这个包的分析，重点就是 `exprs` 函数提取表达矩阵，`pData` 函数看看该对象的样本分组信息。
 
 ## 自己构造ExpressionSet对象
 
 > 根据上面的讲解，我们知道了在这个对象其实很简单，就是对表达矩阵加上样本分组信息的一个封装。
-> 所以我们就用上面得到的exprMatrix和meta来构建一个ExpressionSet对象，biobase包里面提供了详细的说明
+> 所以我们就用上面得到的exprMatrix和meta来构建一个ExpressionSet对象，biobase包里面提供了详细的说明,建议大家仔细看官方手册
 
 ```R
     metadata <- data.frame(labelDescription=c('SampleID', 'Disease'),
@@ -65,7 +65,7 @@
 
 ## 其它例子
 
-### ALL包的数据
+### ALL包的数据自带 `ExpressionSet` 对象
 ```R
     library(ALL)
     data(ALL)
@@ -86,7 +86,7 @@
 ```
 这个数据非常出名，很多其它算法包都会拿这个数据来举例子，只有真正理解了ExpressionSet对象才能学会bioconductor系列包 
 
-## 用GEOquery包来下载数据
+## 用GEOquery包来下载得到 `ExpressionSet` 对象
 ```R
     gse1009=GEOquery::getGEO("GSE1009")
     gse1009[[1]] ## 这就是ExpressionSet对象
